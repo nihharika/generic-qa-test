@@ -1,0 +1,27 @@
+{
+  "name": "generic-ai-qa-agent",
+  "version": "2.0.0",
+  "description": "Generic Gemini API + Playwright AI QA Agent for any HTML file or website URL",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "cross-env NODE_ENV=production node server.js",
+    "ai:test:url": "node runner/runTests.js",
+    "ai:test:headed": "cross-env HEADED=true node runner/runTests.js",
+    "report": "playwright show-report reports/playwright-report"
+  },
+  "dependencies": {
+    "@google/genai": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@playwright/test": "latest",
+    "cross-env": "latest"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

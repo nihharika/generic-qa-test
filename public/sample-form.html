@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sample Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f8fafc;
+    }
+
+    form {
+      width: 420px;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+    }
+
+    button {
+      margin-top: 18px;
+      padding: 10px 16px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sample Registration Form</h1>
+
+  <form id="sampleForm">
+    <label>
+      Full Name
+      <input name="fullName" required minlength="2" placeholder="Full Name" />
+    </label>
+
+    <label>
+      Username
+      <input name="username" required minlength="4" maxlength="20" pattern="[A-Za-z][A-Za-z0-9_]*" placeholder="Username" />
+    </label>
+
+    <label>
+      Email
+      <input name="email" type="email" required placeholder="Email" />
+    </label>
+
+    <label>
+      Phone
+      <input name="phone" type="tel" required pattern="[0-9]{10}" placeholder="Phone" />
+    </label>
+
+    <label>
+      Age
+      <input name="age" type="number" required min="18" max="60" placeholder="Age" />
+    </label>
+
+    <label>
+      City
+      <select name="city" required>
+        <option value="">Select city</option>
+        <option>Guwahati</option>
+        <option>Delhi</option>
+        <option>Mumbai</option>
+      </select>
+    </label>
+
+    <label>
+      Message
+      <textarea name="message" required minlength="10" maxlength="200" placeholder="Message"></textarea>
+    </label>
+
+    <label>
+      <input type="checkbox" name="terms" required />
+      I agree to the terms
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    document.querySelector("#sampleForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const form = event.currentTarget;
+      const result = document.querySelector("#result");
+
+      if (!form.checkValidity()) {
+        result.textContent = "Please fix validation errors.";
+        result.style.color = "red";
+        return;
+      }
+
+      result.textContent = "Form submitted successfully.";
+      result.style.color = "green";
+    });
+  </script>
+</body>
+</html>

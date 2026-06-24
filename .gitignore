@@ -1,0 +1,14 @@
+node_modules/
+.env
+
+generated/*.json
+generated/*.js
+generated/*.html
+
+reports/
+screenshots/
+test-results/
+playwright-report/
+
+.DS_Store
+npm-debug.log*

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generic AI QA Agent</title>
+  <link rel="stylesheet" href="/style.css" />
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <h1>Generic AI QA Agent</h1>
+      <p class="subtitle">
+        Test any HTML file or website URL using Gemini-generated Playwright tests.
+      </p>
+
+      <div class="tabs">
+        <label>
+          <input type="radio" name="targetType" value="url" checked />
+          Website URL
+        </label>
+
+        <label>
+          <input type="radio" name="targetType" value="html" />
+          HTML File / HTML Code
+        </label>
+      </div>
+
+      <div id="urlPanel" class="panel">
+        <label for="targetUrl">Website URL</label>
+        <input
+          id="targetUrl"
+          type="url"
+          value="http://127.0.0.1:3000/sample-form.html"
+          placeholder="https://example.com/contact"
+        />
+      </div>
+
+      <div id="htmlPanel" class="panel" hidden>
+        <label for="htmlFile">Upload HTML file</label>
+        <input id="htmlFile" type="file" accept=".html,.htm,text/html" />
+
+        <label for="htmlCode">Or paste HTML code</label>
+        <textarea
+          id="htmlCode"
+          rows="12"
+          placeholder="Paste complete HTML code here..."
+        ></textarea>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="scenarioCount">Number of AI scenarios</label>
+          <input id="scenarioCount" type="number" value="10" min="1" max="30" />
+        </div>
+      </div>
+
+      <button id="runAiTestsBtn" type="button">
+        Run AI Tests
+      </button>
+
+      <div id="testLinks" class="links"></div>
+
+      <h2>Output</h2>
+      <pre id="testOutput">{}</pre>
+    </section>
+  </main>
+</body>
+</html>
